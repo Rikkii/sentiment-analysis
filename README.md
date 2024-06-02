@@ -1,44 +1,47 @@
-Данные взяты с kaggle https://www.kaggle.com/datasets/jp797498e/twitter-entity-sentiment-analysis
+# Sentiment Analysis Twitter Dataset
 
-Это набор данных анализа настроений в отношении различных компаний в Твиттере. Учитывая сообщение и компанию, задача состоит в том, чтобы оценить тональность сообщения о компании. В этом наборе данных есть три класса: положительные, отрицательные и нейтральные. Мы рассматриваем сообщения, которые не имеют отношения к компании (т. е. не имеют отношения к делу), как нейтральные.
+This dataset contains sentiment analysis of tweets regarding various companies on Twitter. Given the message and the company, the task is to evaluate the sentiment of the message about the company. There are three classes in this dataset: positive, negative, and neutral. Messages that are not related to the company (i.e., off-topic) are considered neutral.
 
-Дата Изменения
-29.02.2024 Добавлено описание проекта
-16.04.2024 Обновлена структура проекта
-Необходимые пункты описания:
+## Date of Changes
+- 02.29.2024 Added project description
+- 04.16.2024 Updated project structure
 
-Формулировка задачи: на основе текста комментария определяю настроение автора по отношению к какой-либо компании
-Данные взяты с kaggle https://www.kaggle.com/datasets/jp797498e/twitter-entity-sentiment-analysis Особенности данных: умеренно большое количество компаний (32), преимущественно игровая сфера. Примерно одинаковое соотношение позитивных и негативных комментариев (28% vs 30%) в тренировочном датасете
-Буду использовать библиотеку pytorch, экспериментировать со слоями нейронной сети
-Продакшен пайплайн: пользователь загружает файл с комментариями пользователей Твиттер и ему возвращается файл с характеристикой этих комментариев
+## Description
+- **Task Formulation:** Based on the text of the comment, determine the author's sentiment towards a specific company.
+- **Data Source:** [Kaggle](https://www.kaggle.com/datasets/jp797498e/twitter-entity-sentiment-analysis)
+- **Data Features:** Moderate number of companies (32), mainly in the gaming industry. Approximately equal distribution of positive and negative comments (28% vs 30%) in the training dataset.
+- **Libraries:** PyTorch will be used, experimenting with neural network layers.
+- **Production Pipeline:** User uploads a file with Twitter user comments and receives a file with the sentiment analysis of those comments.
 
+```
 .
 ├── Dockerfile
 ├── code
-│   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-312.pyc
-│   │   ├── infer.cpython-312.pyc
-│   │   └── train.cpython-312.pyc
-│   ├── classes
-│   │   ├── Model.py
-│   │   ├── TwitterDataset.py
-│   │   ├── __init__.py
-│   │   └── __pycache__
-│   │       ├── Model.cpython-312.pyc
-│   │       ├── TwitterDataset.cpython-312.pyc
-│   │       └── __init__.cpython-312.pyc
-│   ├── functions
-│   │   ├── __init__.py
-│   │   ├── __pycache__
-│   │   │   ├── __init__.cpython-312.pyc
-│   │   │   ├── check_accuracy.cpython-312.pyc
-│   │   │   └── preprocess_and_vectorize.cpython-312.pyc
-│   │   ├── check_accuracy.py
-│   │   └── preprocess_and_vectorize.py
-│   ├── infer.py
-│   └── train.py
+│   ├── init.py
+│   ├── pycache
+│   │   ├── init.cpython-312.pyc
+│   │   ├── infer.cpython-312.pyc
+│   │   └── train.cpython-312.pyc
+│   ├── classes
+│   │   ├── Model.py
+│   │   ├── TwitterDataset.py
+│   │   ├── init.py
+│   │   └── pycache
+│   │       ├── Model.cpython-312.pyc
+│   │       ├── TwitterDataset.cpython-312.pyc
+│   │       └── init.cpython-312.pyc
+│   ├── functions
+│   │   ├── init.py
+│   │   ├── pycache
+│   │   │   ├── init.cpython-312.pyc
+│   │   │   ├── check_accuracy.cpython-312.pyc
+│   │   │   └── preprocess_and_vectorize.cpython-312.pyc
+│   │   ├── check_accuracy.py
+│   │   └── preprocess_and_vectorize.py
+│   ├── infer.py
+│   └── train.py
 ├── main.py
 ├── model.pth
 └── requirements.txt
+```
 
