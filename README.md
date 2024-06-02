@@ -11,3 +11,34 @@
 Данные взяты с kaggle https://www.kaggle.com/datasets/jp797498e/twitter-entity-sentiment-analysis Особенности данных: умеренно большое количество компаний (32), преимущественно игровая сфера. Примерно одинаковое соотношение позитивных и негативных комментариев (28% vs 30%) в тренировочном датасете
 Буду использовать библиотеку pytorch, экспериментировать со слоями нейронной сети
 Продакшен пайплайн: пользователь загружает файл с комментариями пользователей Твиттер и ему возвращается файл с характеристикой этих комментариев
+
+.
+├── Dockerfile
+├── code
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── infer.cpython-312.pyc
+│   │   └── train.cpython-312.pyc
+│   ├── classes
+│   │   ├── Model.py
+│   │   ├── TwitterDataset.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── Model.cpython-312.pyc
+│   │       ├── TwitterDataset.cpython-312.pyc
+│   │       └── __init__.cpython-312.pyc
+│   ├── functions
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-312.pyc
+│   │   │   ├── check_accuracy.cpython-312.pyc
+│   │   │   └── preprocess_and_vectorize.cpython-312.pyc
+│   │   ├── check_accuracy.py
+│   │   └── preprocess_and_vectorize.py
+│   ├── infer.py
+│   └── train.py
+├── main.py
+├── model.pth
+└── requirements.txt
+
