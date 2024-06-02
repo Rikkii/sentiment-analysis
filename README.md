@@ -26,16 +26,8 @@ This dataset contains sentiment analysis of tweets regarding various companies o
 │   │   ├── Model.py
 │   │   ├── TwitterDataset.py
 │   │   ├── init.py
-│   │   └── pycache
-│   │       ├── Model.cpython-312.pyc
-│   │       ├── TwitterDataset.cpython-312.pyc
-│   │       └── init.cpython-312.pyc
 │   ├── functions
 │   │   ├── init.py
-│   │   ├── pycache
-│   │   │   ├── init.cpython-312.pyc
-│   │   │   ├── check_accuracy.cpython-312.pyc
-│   │   │   └── preprocess_and_vectorize.cpython-312.pyc
 │   │   ├── check_accuracy.py
 │   │   └── preprocess_and_vectorize.py
 │   ├── infer.py
