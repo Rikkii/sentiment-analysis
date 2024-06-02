@@ -12,7 +12,8 @@ This dataset contains sentiment analysis of tweets regarding various companies o
 - **Data Features:** Moderate number of companies (32), mainly in the gaming industry. Approximately equal distribution of positive and negative comments (28% vs 30%) in the training dataset.
 - **Libraries:** PyTorch will be used, experimenting with neural network layers.
 - **Production Pipeline:** User uploads a file with Twitter user comments and receives a file with the sentiment analysis of those comments.
-
+  
+## Project Structure
 ```
 .
 ├── Dockerfile
