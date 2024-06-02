@@ -18,10 +18,6 @@ This dataset contains sentiment analysis of tweets regarding various companies o
 ├── Dockerfile
 ├── code
 │   ├── init.py
-│   ├── pycache
-│   │   ├── init.cpython-312.pyc
-│   │   ├── infer.cpython-312.pyc
-│   │   └── train.cpython-312.pyc
 │   ├── classes
 │   │   ├── Model.py
 │   │   ├── TwitterDataset.py
