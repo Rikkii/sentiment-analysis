@@ -34,3 +34,6 @@ class PreprocessAndVectorize:
     def __call__(self, sample):
         x, y = sample
         return preprocess_and_vectorize(x, y)
+
+
+dataset = TwitterDataset()

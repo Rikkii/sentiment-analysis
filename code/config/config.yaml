@@ -1,0 +1,6 @@
+params:
+    input_size: 300
+    num_classes: 4
+    learning_rate: 0.001
+    batch_size: 64
+    num_epochs: 3
