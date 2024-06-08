@@ -2,10 +2,6 @@
 
 This dataset contains sentiment analysis of tweets regarding various companies on Twitter. Given the message and the company, the task is to evaluate the sentiment of the message about the company. There are three classes in this dataset: positive, negative, and neutral. Messages that are not related to the company (i.e., off-topic) are considered neutral.
 
-## Date of Changes
-- 02.29.2024 Added project description
-- 04.16.2024 Updated project structure
-
 ## Description
 - **Task Formulation:** Based on the text of the comment, determine the author's sentiment towards a specific company.
 - **Data Source:** [Kaggle](https://www.kaggle.com/datasets/jp797498e/twitter-entity-sentiment-analysis)
