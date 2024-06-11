@@ -1,21 +1,20 @@
+from code.functions.preprocess_and_vectorize import preprocess_and_vectorize
+
 import pandas as pd
 from torch.utils.data import Dataset
 
-from code.functions.preprocess_and_vectorize import preprocess_and_vectorize
-
 
 class TwitterDataset(Dataset):
-
-    def __init__(self, mode='train', transform=None):
-        if mode == 'train':
+    def __init__(self, mode="train", transform=None):
+        if mode == "train":
             data = pd.read_csv("data/twitter_training_cleaned.csv")
-        elif mode == 'test':
+        elif mode == "test":
             data = pd.read_csv("data/twitter_validation_cleaned.csv")
         else:
-            raise Exception('enter correct mode parameter')
+            raise Exception("enter correct mode parameter")
 
-        self.x = data['text']
-        self.y = data['sentiment']
+        self.x = data["text"]
+        self.y = data["sentiment"]
         self.n_samples = data.shape[0]
         self.transform = transform
 

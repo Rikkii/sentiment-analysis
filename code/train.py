@@ -1,43 +1,31 @@
-import torch
-from torch import optim  # For optimizers like SGD, Adam, etc.
-from torch import nn  # All neural network modules
-from torch.utils.data import DataLoader
-from tqdm import tqdm  # For nice progress bar!
-import hydra
-from omegaconf import DictConfig
-
 from code.classes.Model import NN
-from code.classes.TwitterDataset import TwitterDataset, PreprocessAndVectorize
+from code.classes.TwitterDataModule import TwitterDataModule
 
-@hydra.main(config_path= 'config', config_name='config.yaml', version_base='1.3.2')
+import hydra
+import pytorch_lightning as pl
+from omegaconf import DictConfig
+from pytorch_lightning.loggers import CSVLogger, MLFlowLogger
+
+
+@hydra.main(config_path="config", config_name="config.yaml", version_base="1.3.2")
 def train(cfg: DictConfig):
 
-    # Set device cuda for GPU if it's available otherwise run on the CPU
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    data_module = TwitterDataModule(batch_size=cfg.params.batch_size)
+    data_module.setup()
 
-    dataset = TwitterDataset(transform=PreprocessAndVectorize())
-    dataloader = DataLoader(dataset=dataset, batch_size=cfg.params.batch_size, shuffle=True)
+    loggers = [
+        CSVLogger("./.logs/my-csv-logs", name=cfg.artifacts.experiment_name),
+        MLFlowLogger(
+            experiment_name=cfg.artifacts.experiment_name,
+            tracking_uri="file:./.logs/my-mlflow-logs",
+        ),
+    ]
 
-    # # Initialize network
-    model = NN(input_size=cfg.params.input_size, num_classes=cfg.params.num_classes).to(device)
+    # Initialize network
+    model = NN(input_size=cfg.params.input_size, num_classes=cfg.params.num_classes)
+    trainer = pl.Trainer(max_epochs=cfg.params.num_epochs, logger=loggers)
 
-    # Loss and optimizer
-    criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=cfg.params.learning_rate)
-
-    # Train Network
-    for epoch in range(cfg.params.num_epochs):
-        for src, target in tqdm(dataloader):
-
-            scores = model(src)
-            loss = criterion(scores, target)
-
-            # Backward
-            optimizer.zero_grad()
-            loss.backward()
-
-            # Gradient descent or adam step
-            optimizer.step()
+    trainer.fit(model, data_module.train_dataloader())
 
     # Saving trained network
-    torch.save(model.state_dict(), 'model.pth')
+    trainer.save_checkpoint("model.ckpt")
