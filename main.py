@@ -1,6 +1,6 @@
-from code.infer import infer
-from code.train import train
+import subprocess
 
-train()
+subprocess.run(["python", "code/train.py"])
 
-# infer()
+
+subprocess.run(["python", "code/infer.py"])

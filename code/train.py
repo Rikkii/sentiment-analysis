@@ -1,5 +1,5 @@
-from code.classes.Model import NN
-from code.classes.TwitterDataModule import TwitterDataModule
+from code.classes.model import NN
+from code.classes.twitter_data_module import TwitterDataModule
 
 import hydra
 import pytorch_lightning as pl

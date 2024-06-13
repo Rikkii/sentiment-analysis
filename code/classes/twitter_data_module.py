@@ -1,4 +1,4 @@
-from code.classes.TwitterDataset import PreprocessAndVectorize, TwitterDataset
+from code.classes.twitter_dataset import PreprocessAndVectorize, TwitterDataset
 
 import pytorch_lightning as pl
 from torch.utils.data import DataLoader
