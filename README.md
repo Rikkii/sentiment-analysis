@@ -1,4 +1,5 @@
-# Sentiment Analysis Twitter Dataset
+# MLops project 
+Sentiment Analysis on twitter dataset
 
 This dataset contains sentiment analysis of tweets regarding various companies on Twitter. Given the message and the company, the task is to evaluate the sentiment of the message about the company. There are three classes in this dataset: positive, negative, and neutral. Messages that are not related to the company (i.e., off-topic) are considered neutral.
 
